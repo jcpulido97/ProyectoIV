@@ -22,8 +22,7 @@ En este servicio se podrán realizar las siguientes acciones:
 ## Herramientas a utilizar
 
 - [Python](https://github.com/python/cpython) como lenguaje de programación.
-  - [FLASK](http://flask.pocoo.org/) como micro-framework web.
-  - [JSON](http://www.json.org/) como formato de serialización de objetos
-- [SQLite](https://github.com/ghaering/pysqlite) como de base de datos local a la aplicación.
+  - [Flask](http://flask.pocoo.org/) como micro-framework web.
+- [MariaDB](https://github.com/MariaDB/server) como gestor de base de datos.
 - [Docker](https://github.com/docker/cli) como software de aislamiento de los microservicios.
 
