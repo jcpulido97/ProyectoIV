@@ -1,8 +1,8 @@
 # ProyectoIV - Gestión de Máquinas Virtuales
 
+![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)
+
 ​	Esta aplicación tiene como objetivo la gestión de máquinas virtuales para una futura integración con un sistema más complejo.
-
-
 
 #### Filosofía de diseño
 
