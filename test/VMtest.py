@@ -12,7 +12,7 @@ class TestVM(unittest.TestCase):
         self.assertEqual(self.vm.getIP(), new_ip, 'Fallo en el cambio de ip')
         bad_formated_ip = "4561.16358.10.-12"
         self.assertFalse(self.vm.setIP(bad_formated_ip), 'Fallo, aceptó una ip mal formateada '+bad_formated_ip)
-        self.assertFalse(self.vm.setIP("256.256.256.256"), 'Fallo, aceptó una ip mal imposible')
+        self.assertFalse(self.vm.setIP("256.256.256.256"), 'Fallo, aceptó una ip imposible')
         self.assertEqual(self.vm.getIP(), new_ip, 'Fallo en el cambio de ip')
 
     def test_mac(self):

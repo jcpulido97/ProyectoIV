@@ -2,7 +2,11 @@
 
 [![Build Status](https://travis-ci.org/jcpulido97/ProyectoIV.svg?branch=master)](https://travis-ci.org/jcpulido97/ProyectoIV)
 
-​	Esta aplicación tiene como objetivo la gestión de máquinas virtuales para una futura integración con un sistema más complejo.
+​	Esta aplicación tiene como objetivo la gestión de máquinas virtuales para una futura integración con un sistema más complejo. 
+
+​	La clase [VM](https://github.com/jcpulido97/ProyectoIV/blob/master/src/vm.py) contiene toda la información en lo que se refiere a las máquinas virtuales que serán almacenadas/usadas por el sistema, por tanto será la clase testeada (por [VMtest.py](https://github.com/jcpulido97/ProyectoIV/blob/master/test/VMtest.py)) de forma profunda para asegurar el completo y correcto funcionamiento del elemento central del proyecto.
+
+​	Para más información acceder a la [documentación](https://github.com/jcpulido97/ProyectoIV/tree/master/doc) del proyecto.
 
 #### Filosofía de diseño
 
