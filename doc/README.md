@@ -1,9 +1,11 @@
 # Documentación de Proyecto
 
 Este proyecto trata sobre un microservicio para la gestión de máquinas virtuales para un posterior
-sistema más complejo
+sistema más complejo.
 
-A continuación se va
+
+
+#### Explicación del por qué del uso de cada herramienta
 
 - [Flask](http://flask.pocoo.org/) como micro-framework web.
   - Se usa debido a su rapidez y sencillez a la hora de la creación de aplicaciones web. Por tanto es óptimo para la creación de muchos microservicios como puede pasar en este sistema
@@ -21,7 +23,7 @@ Atributos miembro:
 | Variable                                                    |    Tipo     | Valor por defecto |
 | ----------------------------------------------------------- | :---------: | :---------------: |
 | nombre                                                      | **String**  |       Vacío       |
-| vcpu                                                        |  **int **   |        -1         |
+| vcpu                                                        |   **int**   |        -1         |
 | ram                                                         |   **int**   |         0         |
 | uuid                                                        |   **int**   |         0         |
 | ip                                                          | **String**  |       Vacío       |

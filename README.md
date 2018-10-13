@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/jcpulido97/ProyectoIV.svg?branch=master)](https://travis-ci.org/jcpulido97/ProyectoIV)
 
+![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)
+
 ​	Esta aplicación tiene como objetivo la gestión de máquinas virtuales para una futura integración con un sistema más complejo. 
 
 ​	La clase [VM](https://github.com/jcpulido97/ProyectoIV/blob/master/src/vm.py) contiene toda la información en lo que se refiere a las máquinas virtuales que serán almacenadas/usadas por el sistema, por tanto será la clase testeada (por [VMtest.py](https://github.com/jcpulido97/ProyectoIV/blob/master/test/VMtest.py)) de forma profunda para asegurar el completo y correcto funcionamiento del elemento central del proyecto.
@@ -21,8 +23,6 @@ En este servicio se podrán realizar las siguientes acciones:
 - Eliminar una VM ya registrada
 
 - Editar Información sobre la VM
-
-![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)
 
 ## Herramientas a utilizar
 
