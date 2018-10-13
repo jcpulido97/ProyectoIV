@@ -1,6 +1,6 @@
 # ProyectoIV - Gestión de Máquinas Virtuales
 
-![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)
+[![Build Status](https://travis-ci.org/jcpulido97/ProyectoIV.svg?branch=master)](https://travis-ci.org/jcpulido97/ProyectoIV)
 
 ​	Esta aplicación tiene como objetivo la gestión de máquinas virtuales para una futura integración con un sistema más complejo.
 
@@ -18,6 +18,7 @@ En este servicio se podrán realizar las siguientes acciones:
 
 - Editar Información sobre la VM
 
+![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)
 
 ## Herramientas a utilizar
 
@@ -25,4 +26,4 @@ En este servicio se podrán realizar las siguientes acciones:
   - [Flask](http://flask.pocoo.org/) como micro-framework web.
 - [MariaDB](https://github.com/MariaDB/server) como gestor de base de datos.
 - [Docker](https://github.com/docker/cli) como software de aislamiento de los microservicios.
-
+- [Travis-CI](https://travis-ci.org) como sistema de integración continua.

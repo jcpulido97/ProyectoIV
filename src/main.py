@@ -1,0 +1,63 @@
+from flask import *
+from vm import VM
+import json, signal, sys
+
+app = Flask(__name__)
+vm_pool = {}
+vm_pool_json_path = "vm_pool.json"
+
+@app.route('/vm/<uuid>', methods = ['GET'])
+def serve_vm(uuid):
+    global vm_pool
+    vm = vm_pool.get(int(uuid))
+    if vm != None:
+        return Response(str(vm),mimetype="application/json")
+    else:
+        response="[ "
+        for i in vm_pool.keys():
+            response += str(vm_pool.get(i))+","
+        response = response[:-1] + "]"
+        return Response(response,mimetype="application/json")
+
+@app.route('/vm_ip/<uuid>/<ip>', methods = ['GET'])
+def change_ip_vm(uuid,ip):
+    global vm_pool
+    vm = vm_pool.get(int(uuid))
+    if vm != None:
+        response = "Successful change of ip" if vm.setIP(str(ip)) else "Failed to change ip"
+        return response
+
+@app.route('/register_vm/<uuid>', methods = ['GET'])
+def register_vm(uuid):
+    global vm_pool
+    uuid = int(uuid)
+    vm = vm_pool.get(uuid)
+    if vm == None:
+        vm_pool[uuid] = VM()
+        vm_pool.get(uuid).setUuid(uuid)
+        for i in vm_pool.keys():
+            print("["+str(i)+"] : "+str(vm_pool.get(i)) +'\n')
+        return "Máquina registrada"
+    else:
+        return "Máquina ya existente"
+
+def graceful_exit(sig, frame):
+    global vm_pool
+    global vm_pool_json_path
+    print("\n--- Updating vm_pool.json")
+    with open(vm_pool_json_path, 'w') as f:
+        for i in vm_pool.keys():
+            print("["+str(i)+"] : "+str(vm_pool.get(i)) +'\n')
+            f.write(str(vm_pool.get(i)) + "\n")
+
+    print("Updated")
+    sys.exit(0)
+
+if __name__ == '__main__':
+    with open(vm_pool_json_path) as f:
+        for linea in f:
+            vm = VM.fromJson(linea)
+            vm_pool[vm.getUuid()] = vm
+
+    signal.signal(signal.SIGINT, graceful_exit)
+    app.run(host='0.0.0.0', debug=True)
