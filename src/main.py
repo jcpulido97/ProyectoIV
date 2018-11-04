@@ -6,6 +6,40 @@ app = Flask(__name__)
 vm_pool = {}
 vm_pool_json_path = "vm_pool.json"
 
+
+@app.route('/', methods = ['GET'])
+def status():
+    response =  {"status" : "OK"}
+    return jsonify(response);
+
+@app.route('/status', methods = ['GET'])
+def status_vm():
+    num_vm_alive = 0
+    ram_used = 0
+    total_vcpu = 0
+    vcpu_in_use = 0
+    ram_in_use = 0
+    for i in vm_pool.keys():
+        ram_used += vm_pool.get(i).getRAM()
+        total_vcpu += vm_pool.get(i).getVCPU()
+        if(vm_pool.get(i).isAlive()):
+            num_vm_alive += 1
+            vcpu_in_use += vm_pool.get(i).getVCPU()
+            ram_in_use += vm_pool.get(i).getRAM()
+    response =  {"status" : "OK",
+                 "vm_pool_status" :
+                    {
+                     "total_vm" : len(vm_pool),
+                     "VMs_alive" : num_vm_alive,
+                     "total_ram" : ram_used,
+                     "total_vcpu" : total_vcpu,
+                     "in_use_ram" : ram_in_use,
+                     "in_use_vcpu" : vcpu_in_use,
+                     "vm_UUIDs" : list(vm_pool.keys())
+                     }
+                 }
+    return jsonify(response);
+
 @app.route('/vm/<uuid>', methods = ['GET'])
 def serve_vm(uuid):
     global vm_pool
@@ -45,12 +79,20 @@ def graceful_exit(sig, frame):
     global vm_pool
     global vm_pool_json_path
     print("\n--- Updating vm_pool.json")
-    with open(vm_pool_json_path, 'w') as f:
+    f = open(vm_pool_json_path, 'r+')
+    try:
+        for linea in f:
+            vm = VM.fromJson(linea)
+            if vm.getUuid() in vm_pool:
+                del vm_pool[vm.getUuid()]
         for i in vm_pool.keys():
-            print("["+str(i)+"] : "+str(vm_pool.get(i)) +'\n')
-            f.write(str(vm_pool.get(i)) + "\n")
+            json = str(vm_pool.get(i))
+            print("["+str(i)+"] : "+ json +'\n')
+            f.write(json + "\n")
+        f.close()
+    except IOError as err:
+       print("Error file: " + str(err))
 
-    print("Updated")
     sys.exit(0)
 
 if __name__ == '__main__':
