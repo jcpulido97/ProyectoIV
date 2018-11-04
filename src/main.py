@@ -2,7 +2,7 @@ from flask import *
 from vm import VM
 import json, signal, sys
 
-app = Flask(__name__)
+app = Flask("app")
 vm_pool = {}
 vm_pool_json_path = "vm_pool.json"
 
