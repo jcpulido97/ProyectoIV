@@ -6,6 +6,33 @@ app = Flask(__name__)
 vm_pool = {}
 vm_pool_json_path = "src/vm_pool.json"
 
+def graceful_exit(sig, frame):
+    global vm_pool
+    global vm_pool_json_path
+    print("\n--- Updating vm_pool.json")
+    f = open(vm_pool_json_path, 'r+')
+    try:
+        for linea in f:
+            vm = VM.fromJson(linea)
+            if vm.getUuid() in vm_pool:
+                del vm_pool[vm.getUuid()]
+        for i in vm_pool.keys():
+            json = str(vm_pool.get(i))
+            print("["+str(i)+"] : "+ json +'\n')
+            f.write(json + "\n")
+        f.close()
+    except IOError as err:
+       print("Error file: " + str(err))
+
+    sys.exit(0)
+    
+signal.signal(signal.SIGINT, graceful_exit)
+
+with open(vm_pool_json_path) as f:
+    for linea in f:
+        vm = VM.fromJson(linea)
+        vm_pool[vm.getUuid()] = vm
+
 
 @app.route('/', methods = ['GET'])
 def status():
@@ -75,31 +102,6 @@ def register_vm(uuid):
     else:
         return "Máquina ya existente"
 
-def graceful_exit(sig, frame):
-    global vm_pool
-    global vm_pool_json_path
-    print("\n--- Updating vm_pool.json")
-    f = open(vm_pool_json_path, 'r+')
-    try:
-        for linea in f:
-            vm = VM.fromJson(linea)
-            if vm.getUuid() in vm_pool:
-                del vm_pool[vm.getUuid()]
-        for i in vm_pool.keys():
-            json = str(vm_pool.get(i))
-            print("["+str(i)+"] : "+ json +'\n')
-            f.write(json + "\n")
-        f.close()
-    except IOError as err:
-       print("Error file: " + str(err))
-
-    sys.exit(0)
 
 if __name__ == '__main__':
-    with open(vm_pool_json_path) as f:
-        for linea in f:
-            vm = VM.fromJson(linea)
-            vm_pool[vm.getUuid()] = vm
-
-    signal.signal(signal.SIGINT, graceful_exit)
     app.run()
