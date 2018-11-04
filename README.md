@@ -29,7 +29,7 @@ En este servicio se podrán realizar las siguientes acciones:
 
 ```bash
 $ pip install -r requirements.txt # Para instalar las dependencias
-$ pytest test/* 				  # Para ejecutar todos los tests
+$ pytest test/*                   # Para ejecutar todos los tests
 ```
 
 
