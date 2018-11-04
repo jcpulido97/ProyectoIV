@@ -7,21 +7,21 @@ Vamos a realizar un despliegue de nuestra aplicación en la plataforma como serv
 1. Registrarse con una cuenta
 2. Crear una nueva aplicación
 
-![1541355682840](img\1541355682840.png)
+![1541355682840](https://raw.githubusercontent.com/jcpulido97/ProyectoIV/master/doc/img/1541355682840.png)
 
 3. Elegir un nombre válido que nos servirá como enlace al despliegue final de la aplicación
 
-![1541355756485](img\1541355756485.png)
+![1541355756485](https://raw.githubusercontent.com/jcpulido97/ProyectoIV/master/doc/img/1541355756485.png)
 
 4. Enlazar nuestra aplicación con nuestro repositorio GitHub
 
-![1541355799125](img\1541355799125.png)
+![1541355799125](https://raw.githubusercontent.com/jcpulido97/ProyectoIV/master/doc/img/1541355799125.png)
 
-![1541355860801](img\1541355860801.png)
+![1541355860801](https://raw.githubusercontent.com/jcpulido97/ProyectoIV/master/doc/img/1541355860801.png)
 
 5. Por último activamos la opción de "Automatic Deploys" y marcamos también "Wait for CI to pass before deploy" ya que tenemos activado Travis como servicio que pasa los tests de forma automática.
 
-![1541355952180](img\1541355952180.png)
+![1541355952180](https://raw.githubusercontent.com/jcpulido97/ProyectoIV/master/doc/img/1541355952180.png)
 
 **Con esto ya tendremos nuestra aplicación configurada en heroku, solo nos queda añadir unos archivos a nuestro proyecto.**
 
