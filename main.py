@@ -1,10 +1,10 @@
 from flask import *
-from vm import VM
+from src.vm import VM
 import json, signal, sys
 
-app = Flask("app")
+app = Flask(__name__)
 vm_pool = {}
-vm_pool_json_path = "vm_pool.json"
+vm_pool_json_path = "src/vm_pool.json"
 
 
 @app.route('/', methods = ['GET'])
@@ -102,4 +102,4 @@ if __name__ == '__main__':
             vm_pool[vm.getUuid()] = vm
 
     signal.signal(signal.SIGINT, graceful_exit)
-    app.run(host='0.0.0.0', debug=True)
+    app.run()
