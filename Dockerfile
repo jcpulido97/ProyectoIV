@@ -15,4 +15,7 @@ ENV FLASK_APP=main.py
 ENV PORT=5000
 EXPOSE $PORT/tcp
 
-CMD [ "sh", "-c", "flask run -p $PORT" ]
+ENTRYPOINT [ "gunicorn" ]
+
+# CMD [ "sh", "-c", "flask run -p $PORT" ]
+CMD [ "main:app" ]

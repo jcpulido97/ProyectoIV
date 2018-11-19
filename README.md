@@ -12,6 +12,10 @@
 
 Despliegue de la aplicación: https://vm-management-tool.herokuapp.com/
 
+Despliegue del contenedor: https://pacific-shore-31497.herokuapp.com/
+
+Contenedor: https://hub.docker.com/r/kronos483/proyectoiv/ 
+
 #### Filosofía de diseño
 
 ​	Se presentará al usuario con una API REST de forma que se consiga una aplicación modularizada y autosuficiente para su posible integración en un sistema más complejo. Obviamente se hará uso de un estilo de programación orientado a objetos debido a los beneficios que este tipo de diseño conlleva.
@@ -57,6 +61,5 @@ test/VMtest.py ....................
 - [Travis-CI](https://travis-ci.org) como sistema de integración continua.
 - [Heroku](https://www.heroku.com/) como plataforma como servicio (PaaS) para integración continua
   - [Guía de como configurar una aplicación en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
-
-
-
+- [Docker](https://github.com/docker/cli) como software de aislamiento de los microservicios
+- [DockerHub](https://hub.docker.com/) como repositorio de contenedores online.
