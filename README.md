@@ -12,7 +12,7 @@
 
 Despliegue de la aplicación: https://vm-management-tool.herokuapp.com/
 
-Despliegue del contenedor: https://pacific-shore-31497.herokuapp.com/
+Despliegue del docker: https://pacific-shore-31497.herokuapp.com/
 
 Contenedor: https://hub.docker.com/r/kronos483/proyectoiv/ 
 
