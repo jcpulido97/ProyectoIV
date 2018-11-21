@@ -33,7 +33,7 @@ En este servicio se podrán realizar las siguientes acciones:
 
 ```bash
 $ pip install -r requirements.txt # Para instalar las dependencias
-$ pytest test/*                   # Para ejecutar todos los tests
+$ pytest test/VMtest.py           # Para ejecutar todos los tests
 ```
 
 
@@ -41,7 +41,7 @@ $ pytest test/*                   # Para ejecutar todos los tests
 Ejemplo de ejecución
 
 ```bash
-vagrant@vagrant:/vagrant/ProyectoIV$ pytest test/*
+vagrant@vagrant:/vagrant/ProyectoIV$ pytest test/VMtest.py
 ============================= test session starts ==============================
 platform linux -- Python 3.6.5, pytest-3.8.2, py-1.6.0, pluggy-0.7.1
 rootdir: /vagrant/ProyectoIV, inifile:
