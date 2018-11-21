@@ -69,3 +69,5 @@ $ heroku open	#Se nos abrirá la web de la aplicación en nuestro navegador
 
 Podéis ver que mi docker está desplegado [aquí](https://pacific-shore-31497.herokuapp.com/status)
 
+![Despliegue docker](https://raw.githubusercontent.com/jcpulido97/ProyectoIV/master/doc/img/despliegue_docker.PNG)
+
