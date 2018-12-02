@@ -8,4 +8,4 @@ install:
 
 # Ejecutar script test
 script:
-- pytest test/VMtest.py
+- pytest test/VMtest.py test/APItest.py
