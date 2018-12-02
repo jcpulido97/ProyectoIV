@@ -5,7 +5,8 @@ sistema más complejo.
 
 #### Documentación hitos:
 
-- [Hito #1 y #2](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/ClaseVM.md)
+- [Hito #1](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/ClaseVM.md)
+- Hito #2 (Más abajo)
 - [Hito #3](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
 - [Hito #4](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/docker.md)
 
