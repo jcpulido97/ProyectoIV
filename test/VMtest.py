@@ -86,6 +86,5 @@ class TestVM(unittest.TestCase):
         self.assertEqual(vm.isAlive(), False, 'Fallo al deserializar el formato json (Alive)')
         self.assertEqual(vm.getDateCreated(), 1539104862.8222692, 'Fallo al deserializar el formato json (date_created)')
 
-
 if __name__ == '__main__':
     unittest.main()

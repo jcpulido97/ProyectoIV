@@ -25,7 +25,7 @@ def graceful_exit(sig, frame):
        print("Error file: " + str(err))
 
     sys.exit(0)
-    
+
 signal.signal(signal.SIGINT, graceful_exit)
 
 with open(vm_pool_json_path) as f:
@@ -74,19 +74,23 @@ def serve_vm(uuid):
     if vm != None:
         return Response(str(vm),mimetype="application/json")
     else:
-        response="[ "
-        for i in vm_pool.keys():
-            response += str(vm_pool.get(i))+","
-        response = response[:-1] + "]"
-        return Response(response,mimetype="application/json")
+        response = "Failed UUID not found"
+        return return_status(response,404)
 
 @app.route('/vm_ip/<uuid>/<ip>', methods = ['GET'])
 def change_ip_vm(uuid,ip):
     global vm_pool
     vm = vm_pool.get(int(uuid))
     if vm != None:
-        response = "Successful change of ip" if vm.setIP(str(ip)) else "Failed to change ip"
-        return response
+        if vm.setIP(str(ip)):
+            response = "Successful change of ip"
+            return return_status(response,202)
+        else:
+            response = "Failed to change ip. Bad Formatted"
+            return return_status(response,406)
+    else:
+        response = "Failed to change ip. UUID not found"
+        return return_status(response,404)
 
 @app.route('/register_vm/<uuid>', methods = ['GET'])
 def register_vm(uuid):
@@ -98,10 +102,19 @@ def register_vm(uuid):
         vm_pool.get(uuid).setUuid(uuid)
         for i in vm_pool.keys():
             print("["+str(i)+"] : "+str(vm_pool.get(i)) +'\n')
-        return "Máquina registrada"
+        return return_status("Máquina registrada", 200)
     else:
-        return "Máquina ya existente"
+        return return_status("Máquina ya existente", 304)
 
+def return_status(message, code):
+    if code >= 200 and code < 300:
+        success =  True
+    else:
+        success =  False
+    response = {'success' : success,
+                'code' : code,
+                'message' : message}
+    return jsonify(response);
 
 if __name__ == '__main__':
     app.run()

@@ -3,6 +3,14 @@
 Este proyecto trata sobre un microservicio para la gestión de máquinas virtuales para un posterior
 sistema más complejo.
 
+#### Documentación hitos:
+
+- [Hito #1 y #2](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/ClaseVM.md)
+- [Hito #3](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
+- [Hito #4](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/docker.md)
+
+
+
 #### Explicación del por qué del uso de cada herramienta
 
 - [Flask](http://flask.pocoo.org/) como micro-framework web.
@@ -14,33 +22,8 @@ sistema más complejo.
 - [Docker](https://github.com/docker/cli) como software de aislamiento de los microservicios.
   - Gestor de contenedores docker que provee de una capa de aislamiento de los procesos con la máquina host. Usado debido a su capacidad de gestionar los contenedores para que sean especificamente configurados para el servicio que vayan dar
   - [DockerHub](https://hub.docker.com/) como repositorio de contenedores online.
+  - [Guía de despliegue docker en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/docker.md)
 - [Heroku](https://www.heroku.com/) como plataforma como servicio (PaaS) para integración continua
   - Plataforma como servicio de computación en la Nube que soporta distintos lenguajes de programación
   - [Guía de como configurar una aplicación en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
-
-## Clase VM
-
-​	Esta clase se encarga de manejar todo lo que tiene que ver con las Máquinas virtuales, desde su creación y verificación, hasta su serialización en formato JSON. Se encarga de proveer de una interfaz común para acceder a la información y configuración de todas las máquinas virtuales sin importar el Hypervisor/Sistema Operativo usado en los servidores.
-
-##### Atributos miembro:
-
-| Variable                                                    |    Tipo     | Valor por defecto |
-| ----------------------------------------------------------- | :---------: | :---------------: |
-| nombre                                                      | **String**  |       Vacío       |
-| vcpu                                                        |   **int**   |        -1         |
-| ram                                                         |   **int**   |         0         |
-| uuid                                                        |   **int**   |         0         |
-| ip                                                          | **String**  |       Vacío       |
-| vmdsk (Path a la iso de la máquina virtual)                 | **String**  |       Vacío       |
-| mac_address                                                 | **String**  |       Vacío       |
-| alive                                                       | **Boolean** |       False       |
-| date_created (Fecha indicada en formato epoch, estilo Unix) |  **float**  |    time.time()    |
-
-​	Como regla general todos los atributos son accedidos mediante sus respectivos métodos **set** y **get**. Generalmente los métodos set devolverán **True** siempre y cuando el valor haya sido cambiado y **False** en caso contrario.
-
-![UML VM](https://raw.githubusercontent.com/jcpulido97/ProyectoIV/master/doc/VM.png)
-
-
-
-
 

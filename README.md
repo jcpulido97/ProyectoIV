@@ -41,15 +41,16 @@ $ pytest test/VMtest.py           # Para ejecutar todos los tests
 Ejemplo de ejecución
 
 ```bash
-vagrant@vagrant:/vagrant/ProyectoIV$ pytest test/VMtest.py
+vagrant@vagrant:/vagrant/ProyectoIV$ pytest test/VMtest.py test/APItest.py
 ============================= test session starts ==============================
 platform linux -- Python 3.6.5, pytest-3.8.2, py-1.6.0, pluggy-0.7.1
 rootdir: /vagrant/ProyectoIV, inifile:
 collected 20 items
 
-test/VMtest.py ....................
+test/VMtest.py ..........                                                [ 76%]
+test/APItest.py ...                                                      [100%]
 
-========================== 20 passed in 0.27 seconds ===========================
+========================== 13 passed in 4.19 seconds ===========================
 ```
 
 
@@ -62,4 +63,5 @@ test/VMtest.py ....................
 - [Heroku](https://www.heroku.com/) como plataforma como servicio (PaaS) para integración continua
   - [Guía de como configurar una aplicación en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
 - [Docker](https://github.com/docker/cli) como software de aislamiento de los microservicios
+  - [Guía de despliegue docker en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/docker.md)
 - [DockerHub](https://hub.docker.com/) como repositorio de contenedores online.

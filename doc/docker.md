@@ -5,7 +5,7 @@ Creamos el dockerfile de nuestra aplicación
 ```dockerfile
 FROM tiangolo/uwsgi-nginx-flask:python3.7
 
-RUN git clone https://github.com/jcpulido97/ProyectoIV.git
+COPY . ProyectoIV
 
 WORKDIR ProyectoIV
 
@@ -22,12 +22,21 @@ CMD [ "main:app" ]
 
 He usado un docker preparado para desplegar aplicaciones Flask de Python, por lo que único que debemos hacer es descargar nuestras dependencias y ejecutar gunicorn. Del resto del proceso ya se encarga la imagen ya preparada.
 
+```bash
+$ docker build -t <nombre> .
+# Construirá nuestro docker
+$ docker run -it <nombre>
+# Correrá el docker de forma local
+```
+
+
+
 ## Despliegue en Heroku
 
 Instalamos el cliente de Heroku en nuestra terminal como indica la web oficial [aquí](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
 ```bash
-$ heroku login
+$ heroku login --interactive
 # Se nos pedirá nuestro usuario y contraseña
 ```
 

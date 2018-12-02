@@ -1,13 +1,13 @@
 FROM tiangolo/uwsgi-nginx-flask:python3.7
 
 # We copy just the requirements.txt first to leverage Docker cache
-RUN git clone https://github.com/jcpulido97/ProyectoIV.git
-
-WORKDIR ProyectoIV
+# RUN git clone https://github.com/jcpulido97/ProyectoIV.git
 
 # RUN git pull origin docker
 
-# COPY . ProyectoIV
+COPY . ProyectoIV
+
+WORKDIR ProyectoIV
 
 RUN pip install -r requirements.txt
 
