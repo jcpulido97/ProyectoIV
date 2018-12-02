@@ -33,10 +33,7 @@ En este servicio se podrán realizar las siguientes acciones:
 
 ```bash
 $ pip install -r requirements.txt # Para instalar las dependencias
-$ pytest test/VMtest.py           # Para ejecutar todos los tests
 ```
-
-
 
 Ejemplo de ejecución
 
