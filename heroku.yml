@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: gunicorn --chdir /vagrant/ProyectoIV/ main:app
+  web: gunicorn --chdir ProyectoIV/ main:app
