@@ -3,14 +3,11 @@
 Este proyecto trata sobre un microservicio para la gestión de máquinas virtuales para un posterior
 sistema más complejo.
 
-#### Documentación hitos:
+#### Documentación en archivos:
 
-- [Hito #1](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/ClaseVM.md)
-- Hito #2 (Más abajo)
-- [Hito #3](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
-- [Hito #4](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/docker.md)
-
-
+- [Clase de Máquina virtual](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/ClaseVM.md)
+- [Cómo se despliega en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
+- [Cómo se despliega en heroku un docker](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/docker.md)
 
 #### Explicación del por qué del uso de cada herramienta
 
