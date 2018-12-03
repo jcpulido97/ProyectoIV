@@ -2,7 +2,7 @@ import unittest, json, requests, time
 
 class APItest(unittest.TestCase):
     def setUp(self):
-        self.url = 'https://pacific-shore-31497.herokuapp.com/'
+        self.url = 'https://vm-management-tool.herokuapp.com/'
         self.uuid_test = None
 
     def test_status(self):
