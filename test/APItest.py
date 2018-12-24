@@ -4,8 +4,8 @@ from random import randint
 
 class APItest(unittest.TestCase):
     def setUp(self):
-        self.url = 'http://127.0.0.1:5000'
-        # self.url = 'https://vm-management-tool.herokuapp.com/'
+        # self.url = 'http://127.0.0.1:5000'
+        self.url = 'https://vm-management-tool.herokuapp.com/'
         self.new_uuid = str(randint(0, 9999))
         response = requests.get(self.url+'/status')
         self.uuids = response.json().get('vm_pool_status').get('vm_UUIDs')
