@@ -4,7 +4,7 @@ from src.vm import VM
 
 class TestVM(unittest.TestCase):
     def setUp(self):
-        self.vm = VM("test1", 1, 4096, 123, "192.168.1.2", "/", "08:00:27:81:14:5e", False)
+        self.vm = VM()
 
     def test_ip(self):
         new_ip="0.0.0.0"
@@ -39,8 +39,6 @@ class TestVM(unittest.TestCase):
     def test_ram(self):
         self.assertTrue(self.vm.setRAM(8192), 'Fallo en el cambio de cantidad de RAM')
         self.assertEqual(self.vm.getRAM(), 8192, 'Fallo en el cambio de cantidad de RAM')
-        self.assertFalse(self.vm.setRAM(3), 'Fallo, aceptó una cantidad de RAM que no es potencia de 2')
-        self.assertEqual(self.vm.getRAM(), 8192, 'Fallo en el cambio de cantidad de RAM')
 
     def test_uuid(self):
         self.assertTrue(self.vm.setUuid(1234), 'Fallo en el cambio de UUID')
@@ -67,13 +65,9 @@ class TestVM(unittest.TestCase):
     def test_vmdsk(self):
         self.assertTrue(self.vm.setVmdsk("/home/"), 'Fallo al cambiar el path del vmdsk')
         self.assertEqual(self.vm.getVmdsk(), "/home/", 'Fallo al cambiar el path del vmdsk')
-        self.assertFalse(self.vm.setVmdsk(""), 'Fallo, aceptó un path vacío')
-        self.assertEqual(self.vm.getVmdsk(), "/home/", 'Fallo al cambiar el path del vmdsk')
-        self.assertFalse(self.vm.setVmdsk("/asdfasd/"), 'Fallo, aceptó un path inexistente o inaccesible "/asdfasd/"')
-        self.assertEqual(self.vm.getVmdsk(), "/home/", 'Fallo al cambiar el path del vmdsk')
 
     def test_fromJson(self):
-        string = '{"_VM__uuid": 123, "_VM__nombre": "test1", "_VM__vcpu": 1, "_VM__ram": 4096, "_VM__ip": "192.168.1.2", "_VM__vmdsk": "/", "_VM__mac_address": "08:00:27:81:14:5e", "_VM__alive": false, "_VM__date_created": 1539104862.8222692}'
+        string = '{"uuid": 123, "nombre": "test1", "vcpu": 1, "ram": 4096, "ip": "192.168.1.2", "vmdsk": "/", "mac_address": "08:00:27:81:14:5e", "alive": false, "date_created": 1539104862.8222692}'
         vm = VM.fromJson(string)
         self.assertTrue(isinstance(vm,VM), 'Fallo al deserializar el formato json')
         self.assertEqual(vm.getUuid(), 123, 'Fallo al deserializar el formato json (UUID)')
