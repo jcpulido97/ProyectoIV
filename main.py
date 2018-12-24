@@ -5,6 +5,8 @@ from src.vm import VM
 
 import json, signal, sys
 
+db.create_all()
+
 def get_vm(uuid):
     return VM.query.get(int(uuid))
 
@@ -209,4 +211,4 @@ def return_status(message, code):
     return jsonify(response);
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    app.run()
