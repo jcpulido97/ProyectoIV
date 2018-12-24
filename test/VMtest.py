@@ -1,6 +1,6 @@
 import unittest
 import time
-from src.vm import VM
+from src.vm_test import VM
 
 class TestVM(unittest.TestCase):
     def setUp(self):

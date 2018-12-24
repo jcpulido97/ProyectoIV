@@ -1,5 +1,5 @@
 import unittest, json, requests, time
-from src.vm import VM
+from src.vm_test import VM
 from random import randint
 
 class APItest(unittest.TestCase):
@@ -42,7 +42,7 @@ class APItest(unittest.TestCase):
 
     def test_vm_registration(self):
         response = requests.put(self.url+'/vm/'+self.new_uuid).json()
-        
+
         while response.get('code') != 200:
             self.new_uuid = str(randint(0, 9999))
             response = requests.put(self.url+'/vm/'+self.new_uuid).json()
