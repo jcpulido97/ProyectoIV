@@ -29,3 +29,4 @@ sistema más complejo.
 - [Clase de Máquina virtual](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/ClaseVM.md)
 - [Cómo se despliega en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
 - [Cómo se despliega en heroku un docker](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/docker.md)
+- [Despliegue final en Azure](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/Azure.md)

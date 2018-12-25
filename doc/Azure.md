@@ -32,6 +32,6 @@ Finalmente se ha usado un usual servidor MySQL llamado Mariadb que tiene amplio 
 
 ### Pasos del despliegue:
 
-1. [Creación de Vagrantfile y configuración de Vagrant](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/vagrant.md)
-2. [Provisionamiento de la máquina con Ansible](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/ansible.md)
+1. [Creación de Vagrantfile y configuración de Vagrant](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/Vagrant.md)
+2. [Provisionamiento de la máquina con Ansible](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/Ansible.md)
 3. [Despliegue de aplicación con Fabric](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/fabric.md)

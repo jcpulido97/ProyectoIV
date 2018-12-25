@@ -50,4 +50,4 @@ $ vagrant ssh
 
 Ya tendríamos nuestra máquina encendida con ssh configurado.
 
-Ahora tocaría realizar el provisionamiento de dependencias que podemos ver cómo se hace en este [enlace](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/ansible.md)
+Ahora tocaría realizar el provisionamiento de dependencias que podemos ver cómo se hace en este [enlace](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/Ansible.md)
