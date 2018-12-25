@@ -3,12 +3,6 @@
 Este proyecto trata sobre un microservicio para la gestión de máquinas virtuales para un posterior
 sistema más complejo.
 
-#### Documentación en archivos:
-
-- [Clase de Máquina virtual](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/ClaseVM.md)
-- [Cómo se despliega en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
-- [Cómo se despliega en heroku un docker](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/docker.md)
-
 #### Explicación del por qué del uso de cada herramienta
 
 - [Flask](http://flask.pocoo.org/) como micro-framework web.
@@ -24,4 +18,14 @@ sistema más complejo.
 - [Heroku](https://www.heroku.com/) como plataforma como servicio (PaaS) para integración continua
   - Plataforma como servicio de computación en la Nube que soporta distintos lenguajes de programación
   - [Guía de como configurar una aplicación en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
+- [Vagrant](https://www.vagrantup.com/) para orquestación
+- [Ansible](https://www.ansible.com/) para provisionamiento
+- [Fabric](https://fabric.io/) para despliegue
 
+
+
+#### Otra documentación:
+
+- [Clase de Máquina virtual](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/ClaseVM.md)
+- [Cómo se despliega en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/heroku.md)
+- [Cómo se despliega en heroku un docker](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/docker.md)

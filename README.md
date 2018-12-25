@@ -8,13 +8,17 @@
 
 ​	La clase [VM](https://github.com/jcpulido97/ProyectoIV/blob/master/src/vm.py) contiene toda la información en lo que se refiere a las máquinas virtuales que serán almacenadas/usadas por el sistema, por tanto será la clase testeada (por [VMtest.py](https://github.com/jcpulido97/ProyectoIV/blob/master/test/VMtest.py)) de forma profunda para asegurar el completo y correcto funcionamiento del elemento central del proyecto.
 
-​	Para más información acceder a la [documentación](https://github.com/jcpulido97/ProyectoIV/tree/master/doc) del proyecto.
-
 Despliegue de la aplicación: https://vm-management-tool.herokuapp.com/
 
 Contenedor: https://pacific-shore-31497.herokuapp.com/
 
 Despliegue dockerhub: https://hub.docker.com/r/kronos483/proyectoiv/ 
+
+Despliegue final: 137.116.185.97
+
+**Para más información acceder a la [documentación](https://github.com/jcpulido97/ProyectoIV/tree/master/doc) del proyecto.**
+
+[Despliegue final en Azure](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/Azure.md)
 
 #### Filosofía de diseño
 
@@ -29,7 +33,7 @@ En este servicio se podrán realizar las siguientes acciones:
 
 
 
-### Como ejecutar los Tests
+### Tests
 
 ```bash
 $ pip install -r requirements.txt # Para instalar las dependencias
@@ -62,3 +66,6 @@ test/APItest.py ...                                                      [100%]
 - [Docker](https://github.com/docker/cli) como software de aislamiento de los microservicios
   - [Guía de despliegue docker en heroku](https://github.com/jcpulido97/ProyectoIV/tree/master/doc/docker.md)
 - [DockerHub](https://hub.docker.com/) como repositorio de contenedores online.
+- [Vagrant](https://www.vagrantup.com/) para orquestación
+- [Ansible](https://www.ansible.com/) para provisionamiento
+- [Fabric](https://fabric.io/) para despliegue
