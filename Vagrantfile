@@ -20,6 +20,6 @@ Vagrant.configure('2') do |config|
   end # config.vm.provider 'azure'
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "playbook.yml"
+    ansible.playbook = "provision/playbook.yml"
   end
 end # Vagrant.configure
