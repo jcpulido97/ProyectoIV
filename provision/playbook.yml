@@ -9,61 +9,46 @@
 
     - name: Test ansible
       copy: content="IT WORKS!\n" dest=/home/vagrant/ansible_runs
-    # Puesto que la imagen de Ubuntu (16.04LTS) por defecto no incluye Python 3.6, agrego el repositorio donde se
-    # encuentra para poder instalarlo más tarde.
-    #
-    # become: true Indica que tiene que convertirse en superusuario para poder realizar tal tarea.
+      
+    # Tendremos que agregar el repositorio de python3 ya que nuestra version de Ubuntu no trae por defecto
     - name: Agregar repo python 3.6
       become: true
       apt_repository: repo=ppa:deadsnakes/ppa state=present
 
-    # Actualizo apt.
     - name: Update apt
       become: true
       apt:
         upgrade: yes
         update_cache: yes
 
-    # Instalo docker, pues la aplicación la voy a ejecutar en docker.
     - name: Instalar docker
       become: true
       apt: pkg=docker.io state=present
 
-    # Cambio los permisos del socket de docker para poder usar docker sin problema alguno.
     - name: Cambio permisos docker
       become: true
       file: path=/var/run/docker.sock owner=vagrant group=docker
 
-    # Instalo Python 3.6.
     - name: Instalar Python 3.6
       become: true
       apt: pkg=python3.6 state=present
 
-    # Instalo pip3.
     - name: Instalar pip3
       become: true
       apt: pkg=python3-pip state=latest
 
-    # Instalo pip.
     - name: Instalar pip
       become: true
       apt: pkg=python-pip state=latest
 
-    # Instalo docker-py.
-    - name: Instalar docker-py
-      become: true
-      pip: name=docker-py state=latest
-
-    # Instalo setuptools.
     - name: Instalar setuptools
       become: true
       pip: name=setuptools state=latest
 
-    # Ejecuto el servicio de docker.
     - name: Ejecutar servicio Docker
       become: true
       service: name=docker state=started
 
-    # Descargo el contenedor que contiene el proyecto.
+    # Descargar el contenedor que contiene el proyecto.
     - name: Descargar docker Proyecto
       docker_image: name=kronos483/proyectoiv state=present
