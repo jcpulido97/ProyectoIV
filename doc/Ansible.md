@@ -89,7 +89,7 @@ Tambíen podríamos cambiar nuestro vagrantfile para que podamos hacer el provis
 
 ```ruby
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "playbook.yml"
+    ansible.playbook = "provision/playbook.yml"
   end
 ```
 
