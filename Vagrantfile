@@ -1,3 +1,4 @@
+# Referencia https://github.com/Azure/vagrant-azure/
 # Require the Azure provider plugin
 require 'vagrant-azure'
 

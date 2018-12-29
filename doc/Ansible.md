@@ -19,7 +19,7 @@ En este caso nuestro archivo consta de dos grupos:
 - `staging`: que consta de las máquinas donde se hacen las pruebas
 - `production`: son las máquinas que estarían dando servicio a nuestros clientes en una situación de las aplicaciones del mundo real
 
-Ahora tocaría crear el archivo que se encarga de descargar las dependencias, etc. Este archivo se llama playbook.yml
+Ahora tocaría crear el archivo que se encarga de descargar las dependencias, etc. Este archivo se llama playbook.yml. **Para ello me he servido de esta [web](https://blog.ssdnodes.com/blog/step-by-step-ansible-guide/)**
 
 ```yaml
 # Hosts a los que conectarse para realizar el provisionamiento.

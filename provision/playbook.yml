@@ -1,3 +1,4 @@
+# Referencia https://blog.ssdnodes.com/blog/step-by-step-ansible-guide/
 # Hosts a los que conectarse para realizar el provisionamiento.
 - hosts: production
 
