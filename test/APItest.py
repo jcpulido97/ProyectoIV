@@ -39,7 +39,7 @@ class APItest(unittest.TestCase):
                 with self.assertRaises(Exception) as context:
                     raise Exception('UUID not found')
 
-	@unittest.skipIf(len(self.uuids) == 0, "Database apagada")
+    @unittest.skipIf(len(self.uuids) == 0, "Database apagada")
     def test_vm_registration(self):
 		response = requests.put(self.url+'/vm/'+self.new_uuid).json()
 
