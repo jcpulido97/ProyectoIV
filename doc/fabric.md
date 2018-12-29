@@ -7,6 +7,7 @@ Deberemos crear un archivo fabfile que contiene todo el proceso que debe seguirs
 *fabfile.py*
 
 ```python
+# coding=utf-8
 from fabric.api import *
 
 # Usamos la configuración del archivo hosts de SSH.
@@ -21,34 +22,14 @@ def production():
     env.hosts = ['vm_management']
 
 # Iniciar el contenedor con el microservicio.
-def app_up():
-    run('docker run --name vm -p 80:5000 -e DATABASE_URL=$DATABASE_URL -it kronos483/proyectoiv:latest')
+def deploy():
+    run('docker pull kronos483/proyectoiv:latest')
+    run('source /home/vagrant/dbpass && docker run -d -p 80:5000 -e DATABASE_URL=$DATABASE_URL -t kronos483/proyectoiv:latest')
 
 # Parar contenedor con el microservicio.
-def app_down():
+def stop():
     run('docker stop $(docker ps -a -q)')
-
-# Permisos del socket de Docker.
-def dockersock():
-    run('sudo chown vagrant:docker /var/run/docker.sock')
-
-# Docker prune, para limpiar contenedores antiguos.
-def dockerprune():
     run('docker system prune -f')
-
-# Descarga del contenedor.
-def update_app():
-    run('docker pull kronos483/proyectoiv:latest')
-
-# Iniciar microservicio.
-def dock_up():
-    execute(dockersock)
-    execute(dockerprune)
-    execute(app_up)
-
-# Parar el microservicio.
-def dock_down():
-    execute(app_down)
 ```
 
 Deberemos de crear un archivo de configuración para ssh de forma que fabric sepa como debe conectarse a la máquina, con qué usuario y clave privada. **(~/.ssh/config)**
@@ -78,11 +59,25 @@ $ fab <host> [comandos]
 Donde los comandos son cada uno de los métodos definidos en el fabfile. Por ejemplo:
 
 ```bash
-$ fab production dock_up   # Ejecutaría nuestro docker en las máquinas de producción
-$ fab staging update_app   # Actualizaría el docker en las máquinas de staging
-$ fab production dock_down # Apagaría nuestro docker en las máquinas de producción
+$ fab production deploy   # Ejecutaría nuestro docker en las máquinas de producción
+$ fab staging deploy   # Ejecutaría el docker en las máquinas de staging
+$ fab production stop # Apagaría nuestro docker en las máquinas de producción
 ```
 
-> Ejemplo de fab production dock_up
+> Ejemplo de fab production deploy
 
-![Fabric](https://github.com/jcpulido97/ProyectoIV/blob/master/doc/img/fabric.PNG?raw=true)
+![deploy](https://github.com/jcpulido97/ProyectoIV/blob/master/doc/img/deploy.PNG?raw=true)
+
+> Ejemplo de fab production stop
+
+![stop](https://github.com/jcpulido97/ProyectoIV/blob/master/doc/img/stop.PNG?raw=true)
+
+
+
+##### Referencias
+
+- https://stackoverflow.com/questions/3077281/connecting-to-a-host-listed-in-ssh-config-when-using-fabric
+- http://docs.fabfile.org/en/1.14/usage/fab.html
+- https://stackoverflow.com/questions/2326797/how-to-set-target-hosts-in-fabric-file
+
+### 
