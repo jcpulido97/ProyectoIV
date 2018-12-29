@@ -41,21 +41,22 @@ class APItest(unittest.TestCase):
 
 
     def test_vm_registration(self):
-        response = requests.put(self.url+'/vm/'+self.new_uuid).json()
+		if len(self.uuids) > 0:
+			response = requests.put(self.url+'/vm/'+self.new_uuid).json()
 
-        while response.get('code') != 200:
-            self.new_uuid = str(randint(0, 9999))
-            response = requests.put(self.url+'/vm/'+self.new_uuid).json()
+			while response.get('code') != 200:
+				self.new_uuid = str(randint(0, 9999))
+				response = requests.put(self.url+'/vm/'+self.new_uuid).json()
 
-        self.assertTrue(response.get('success'),'Máquina no fue registrada')
-        res = requests.post(self.url+'/vm/'+self.new_uuid, data={'nombre' : 'rgb'})
-        self.assertTrue(response.get('success'),'Nombre - Máquina no fue editada')
-        res = requests.post(self.url+'/vm/'+self.new_uuid, data={'ram' : 1024})
-        self.assertTrue(response.get('success'),'RAM - Máquina no fue editada')
-        res = requests.post(self.url+'/vm/'+self.new_uuid, data={'vcpu' : 2})
-        self.assertTrue(response.get('success'),'Vcpu - Máquina no fue editada')
-        response = requests.delete(self.url+'/vm/'+self.new_uuid).json()
-        self.assertTrue(response.get('success'),'Máquina no fue borrada')
+			self.assertTrue(response.get('success'),'Máquina no fue registrada')
+			res = requests.post(self.url+'/vm/'+self.new_uuid, data={'nombre' : 'rgb'})
+			self.assertTrue(response.get('success'),'Nombre - Máquina no fue editada')
+			res = requests.post(self.url+'/vm/'+self.new_uuid, data={'ram' : 1024})
+			self.assertTrue(response.get('success'),'RAM - Máquina no fue editada')
+			res = requests.post(self.url+'/vm/'+self.new_uuid, data={'vcpu' : 2})
+			self.assertTrue(response.get('success'),'Vcpu - Máquina no fue editada')
+			response = requests.delete(self.url+'/vm/'+self.new_uuid).json()
+			self.assertTrue(response.get('success'),'Máquina no fue borrada')
 
 
 if __name__ == '__main__':
