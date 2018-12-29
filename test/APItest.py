@@ -8,7 +8,10 @@ class APItest(unittest.TestCase):
 		self.url = 'https://pacific-shore-31497.herokuapp.com/status'
 		self.new_uuid = str(randint(0, 9999))
 		response = requests.get(self.url+'/status')
-		self.uuids = response.json().get('vm_pool_status').get('vm_UUIDs')
+		try:
+			self.uuids = response.json().get('vm_pool_status').get('vm_UUIDs')
+		except Exception as e:
+			self.uuids = []
 
 	def test_status(self):
 		response = requests.get(self.url)
