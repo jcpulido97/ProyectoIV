@@ -22,18 +22,15 @@ En este caso nuestro archivo consta de dos grupos:
 Ahora tocaría crear el archivo que se encarga de descargar las dependencias, etc. Este archivo se llama playbook.yml. **Para ello me he servido de esta [web](https://blog.ssdnodes.com/blog/step-by-step-ansible-guide/)**
 
 ```yaml
+# Referencia https://blog.ssdnodes.com/blog/step-by-step-ansible-guide/
 # Hosts a los que conectarse para realizar el provisionamiento.
 - hosts: production
 
-  # Usuario a utilizar.
+  # Usuario a utilizar en ssh.
   remote_user: vagrant
 
   # Tareas a realizar.
   tasks:
-
-    - name: Test ansible
-      copy: content="IT WORKS!\n" dest=/home/vagrant/ansible_runs
-      
     # Tendremos que agregar el repositorio de python3 ya que nuestra version de Ubuntu no trae por defecto
     - name: Agregar repo python 3.6
       become: true
@@ -68,10 +65,17 @@ Ahora tocaría crear el archivo que se encarga de descargar las dependencias, et
     - name: Instalar setuptools
       become: true
       pip: name=setuptools state=latest
+      
+    - name: Instalar docker-py
+      become: true
+      pip: name=docker-py state=latest
 
     - name: Ejecutar servicio Docker
       become: true
       service: name=docker state=started
+      
+    - name: Copio archivo con variable de entorno
+      copy: src=./dbpass dest=/home/vagrant owner=vagrant group=vagrant
 
     # Descargar el contenedor que contiene el proyecto.
     - name: Descargar docker Proyecto

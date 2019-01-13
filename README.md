@@ -14,7 +14,7 @@ Contenedor: https://pacific-shore-31497.herokuapp.com/
 
 Despliegue dockerhub: https://hub.docker.com/r/kronos483/proyectoiv/ 
 
-Despliegue final: 137.116.185.97
+Despliegue final: 157.56.167.85
 
 **Para más información acceder a la [documentación](https://github.com/jcpulido97/ProyectoIV/tree/master/doc) del proyecto.**
 
