@@ -26,17 +26,17 @@ Vagrant.configure('2') do |config|
     azure.client_secret = ENV['AZURE_CLIENT_SECRET']
     azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
 		
-	# Nombre de la maquina
+    # Nombre de la maquina
     azure.vm_name     = 'vmmanagement'
-	# Maquina de tipo Serie B con recursos suficientes: 1vCPU 1GB RAM
-	azure.vm_size     = 'Standard_B1s'
-	# Imagen SO Ubuntu server 16.04	alojada en los servicios de Azure
-	azure.vm_image_urn = 'canonical:ubuntuserver:16.04-LTS:latest'
-	# Localizada en Europa del Oeste (Comentado porque Azure free-tier solo deja crearlas en EEUU)
+    # Maquina de tipo Serie B con recursos suficientes: 1vCPU 1GB RAM
+    azure.vm_size     = 'Standard_B1s'
+    # Imagen SO Ubuntu server 16.04	alojada en los servicios de Azure
+    azure.vm_image_urn = 'canonical:ubuntuserver:16.04-LTS:latest'
+    # Localizada en Europa del Oeste (Comentado porque Azure free-tier solo deja crearlas en EEUU)
     # azure.location = 'West Europe'
 	
-	# Puertos que se exponen; el 80
-	azure.tcp_endpoints = '80'
+    # Puertos que se exponen; el 80
+    azure.tcp_endpoints = '80'
   end
 
   # Configurar ansible para poder hacer provision desde el mismo vagrant
