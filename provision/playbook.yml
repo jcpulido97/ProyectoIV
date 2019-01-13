@@ -2,7 +2,7 @@
 # Hosts a los que conectarse para realizar el provisionamiento.
 - hosts: production
 
-  # Usuario a utilizar.
+  # Usuario a utilizar en ssh.
   remote_user: vagrant
 
   # Tareas a realizar.
@@ -51,7 +51,7 @@
       service: name=docker state=started
       
     - name: Copio archivo con variable de entorno
-      copy: src=./dbpass dest=/home/vagrant owner=vagrant group=vagrant
+      copy: src=../dbpass dest=/home/vagrant owner=vagrant group=vagrant
 
     # Descargar el contenedor que contiene el proyecto.
     - name: Descargar docker Proyecto
